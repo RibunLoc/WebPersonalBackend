@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/model"
-	"github.com/RibunLoc/microservices-learn/auth-service/util"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/model"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/util"
 
-	repository "github.com/RibunLoc/microservices-learn/auth-service/repository"
+	repository "github.com/RibunLoc/WebPersonalBackend/auth-service/repository"
 )
 
 type UserRegister struct {

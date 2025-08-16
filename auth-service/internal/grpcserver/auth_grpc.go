@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/proto/authpb"
-	repository "github.com/RibunLoc/microservices-learn/auth-service/repository"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/proto/authpb"
+	repository "github.com/RibunLoc/WebPersonalBackend/auth-service/repository"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/util"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/util"
 )
 
 type UserGRPCHandler struct {

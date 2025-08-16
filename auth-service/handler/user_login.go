@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	repository "github.com/RibunLoc/microservices-learn/auth-service/repository"
-	"github.com/RibunLoc/microservices-learn/auth-service/util"
+	repository "github.com/RibunLoc/WebPersonalBackend/auth-service/repository"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/util"
 )
 
 type UserLogin struct {

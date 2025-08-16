@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/model"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/model"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

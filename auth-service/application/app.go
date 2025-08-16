@@ -6,9 +6,9 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/internal/grpcserver"
-	"github.com/RibunLoc/microservices-learn/auth-service/proto/authpb"
-	"github.com/RibunLoc/microservices-learn/auth-service/repository"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/internal/grpcserver"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/proto/authpb"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/repository"
 	"github.com/go-redis/redis/v8"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

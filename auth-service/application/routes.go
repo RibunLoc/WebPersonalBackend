@@ -3,8 +3,8 @@ package application
 import (
 	"net/http"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/handler"
-	"github.com/RibunLoc/microservices-learn/auth-service/repository"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/handler"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/repository"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )

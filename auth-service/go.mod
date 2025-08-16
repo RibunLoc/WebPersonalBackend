@@ -1,4 +1,4 @@
-module github.com/RibunLoc/microservices-learn/auth-service
+module github.com/RibunLoc/WebPersonalBackend/auth-service
 
 go 1.23.4
 
