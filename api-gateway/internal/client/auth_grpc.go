@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/RibunLoc/WebPersonalBackend/auth-service/proto/authpb"
+	"github.com/RibunLoc/microservices-learn/auth-service/proto/authpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

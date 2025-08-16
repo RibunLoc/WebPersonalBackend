@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/application"
+	"github.com/RibunLoc/WebPersonalBackend/auth-service/application"
 )
 
 func main() {
