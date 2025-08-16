@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package userpb;
+
+option go_package = "/authpb";
+
+// SERVICE
+service UserService {
+  rpc Register(RegisterRequest) returns (UserResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+// MESSAGE
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+  string fullname = 3;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message UserResponse {
+  string id = 1;
+  string email = 2;
+  string fullname = 3;
+  string role = 4;
+}
+
+message LoginResponse {
+  string token = 1;
+  UserResponse user = 2;
+}
