@@ -1,0 +1,20 @@
+syntax = "proto3";
+package contactpb;
+
+option go_package = "github.com/RibunLoc/WebPersonalBackend/gen/contact/v1;contactv1";
+
+service ContactService {
+  rpc Submit(ContactRequest) returns (ContactResponse);
+}
+
+message ContactRequest {
+  string name = 1;
+  string email = 2;
+  string message = 3;
+  string turnstile_token = 4;
+  string remote_ip = 5;
+}
+
+message ContactResponse {
+  string status = 1;
+}

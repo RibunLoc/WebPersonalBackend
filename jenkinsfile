@@ -1,0 +1,7 @@
+pipeline {
+    agent none // sử dụng agent build riêng
+
+    parameters {
+        
+    }
+}

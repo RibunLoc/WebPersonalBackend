@@ -1,0 +1,21 @@
+services:
+  contact-service:
+    # build: ./contact-service
+    image: harbor.netsena.io.vn/personal_backend/contact_service:v1.0.0
+    env_file:
+      - ./contact-service/.env
+    ports:
+      - "8082:8082"
+      - "50052:50052"
+
+  api-gateway:
+    # build:
+    #   context: .
+    #   dockerfile: ./api-gateway/Dockerfile
+    image: harbor.netsena.io.vn/personal_backend/api_gateway:v1.0.0
+    env_file:
+      - ./api-gateway/.env
+    depends_on:
+      - contact-service
+    ports:
+      - "3000:3000"

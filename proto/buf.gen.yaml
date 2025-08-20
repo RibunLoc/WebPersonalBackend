@@ -1,0 +1,14 @@
+version: v1
+plugins:
+  - plugin: go
+    out: ../gen
+    opt: paths=source_relative
+  - plugin: go-grpc
+    out: ../gen
+    opt: paths=source_relative
+  - plugin: grpc-gateway
+    out: ../gen
+    opt: paths=source_relative
+  # (tuỳ chọn) xuất OpenAPI/Swagger
+  # - plugin: openapiv2
+  #   out: ../gen/openapiv2

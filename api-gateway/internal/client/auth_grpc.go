@@ -4,25 +4,33 @@ import (
 	"context"
 	"time"
 
-	"github.com/RibunLoc/microservices-learn/auth-service/proto/authpb"
+	authv1 "github.com/RibunLoc/WebPersonalBackend/gen/auth/v1"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/backoff"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
 type AuthGRPC struct {
-	cl authpb.UserServiceClient
+	cl authv1.UserServiceClient
 }
 
 func NewAuthGRPC(addr string) (*AuthGRPC, func() error, error) {
 	conn, err := grpc.Dial(addr,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithBlock(),
-		grpc.WithDefaultCallOptions(grpc.WaitForReady(true)),
+		grpc.WithConnectParams(grpc.ConnectParams{
+			MinConnectTimeout: 2 * time.Second,
+			Backoff: backoff.Config{
+				BaseDelay:  200 * time.Millisecond,
+				Multiplier: 1.6,
+				Jitter:     0.2,
+				MaxDelay:   3 * time.Second,
+			},
+		}),
 	)
 	if err != nil {
 		return nil, nil, err
 	}
-	return &AuthGRPC{cl: authpb.NewUserServiceClient(conn)}, conn.Close, nil
+	return &AuthGRPC{cl: authv1.NewUserServiceClient(conn)}, conn.Close, nil
 }
 
 type LoginInput struct {
@@ -44,7 +52,7 @@ func (a *AuthGRPC) Login(ctx context.Context, in LoginInput) (*LoginResult, erro
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
 
-	res, err := a.cl.Login(ctx, &authpb.LoginRequest{
+	res, err := a.cl.Login(ctx, &authv1.LoginRequest{
 		Email:    in.Email,
 		Password: in.Password,
 	})

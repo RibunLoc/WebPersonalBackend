@@ -8,20 +8,20 @@ import (
 )
 
 type Config struct {
-	ServerPort      uint16 // configures the server port
+	ServerPort      uint16
 	AuthGRPCAddr    string
 	AuthHTTPBase    string
-	ContactGRPCAddr string // ví dụ: http://localhost:50052
-	JWTSecret       string // dùng cho middleware verify token
+	ContactGRPCAddr string
+	JWTSecret       string
 }
 
 func LoadConfig() Config {
 	_ = godotenv.Load()
 
 	cfg := Config{
-		ServerPort:   8080,
+		ServerPort:   9090,
 		AuthGRPCAddr: "localhost:50051",
-		AuthHTTPBase: "http://localhost:3000",
+		AuthHTTPBase: "http://localhost:8081",
 
 		ContactGRPCAddr: "localhost:50052",
 	}
@@ -37,11 +37,11 @@ func LoadConfig() Config {
 	if v := os.Getenv("AUTH_HTTP_BASE"); v != "" {
 		cfg.AuthHTTPBase = v
 	}
-	if v := os.Getenv("JWT_SECRET_KEY"); v != "" { // nên đồng bộ với auth-service
-		cfg.JWTSecret = v
-	}
 	if v := os.Getenv("CONTACT_GRPC_ADDR"); v != "" {
 		cfg.ContactGRPCAddr = v
+	}
+	if v := os.Getenv("JWT_SECRET_KEY"); v != "" { // nên đồng bộ với auth-service
+		cfg.JWTSecret = v
 	}
 	return cfg
 }
