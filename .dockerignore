@@ -1,5 +1,3 @@
-# Loại tất cả…
-**
 # …chỉ giữ những thứ cần cho api-gateway build
 !api-gateway/**
 !shared/**
