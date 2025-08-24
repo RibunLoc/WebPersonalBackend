@@ -1,0 +1,11 @@
+# Loại tất cả…
+**
+# …chỉ giữ những thứ cần cho api-gateway build
+!api-gateway/**
+!shared/**
+
+# Luôn loại các thứ nặng
+**/node_modules/**
+**/.git/**
+**/.cache/**
+**/dist/**
