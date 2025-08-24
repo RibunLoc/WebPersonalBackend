@@ -23,7 +23,7 @@ jobs:
     
   build: 
     needs: detect
-    if: needs.detect.outputs.changed != []
+    if: needs.detect.outputs.changed != '[]'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
